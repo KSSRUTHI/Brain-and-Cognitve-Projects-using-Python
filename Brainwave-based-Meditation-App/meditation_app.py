@@ -7,12 +7,10 @@ import sounddevice as sd
 if "eeg_data" not in st.session_state:
     st.session_state.eeg_data = []
 
-
 st.title("Brainwave-Based Meditation App - (Simulated)")
 st.sidebar.title("Settings")
 alpha_threshold = st.sidebar.slider("Alpha Relaxation Threshold", 10, 100, 50)
 session_filename = st.sidebar.text_input("Session Data Filename", "synthetic_eeg_session.csv")
-
 
 if st.button("Start Meditation"):
     st.write("Starting meditation with simulated EEG data...")
@@ -41,14 +39,12 @@ if st.button("Start Meditation"):
         else:
             st.warning("Focus on your breathing to relax.")
 
-
 if st.button("Stop Meditation"):
     st.write("Meditation session ended.")
 
 if st.button("Save Session Data"):
     filepath = save_session_data(st.session_state.eeg_data, session_filename)
     st.success(f"Session data saved to {filepath}")
-
 
 st.sidebar.subheader("Additional Visualizations")
 if st.sidebar.checkbox("Show Beta Band Activity"):
